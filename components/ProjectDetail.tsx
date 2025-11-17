@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Project } from '../types';
 import { GithubIcon, ExternalLinkIcon } from './IconComponents';
@@ -8,11 +7,17 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
+  const handleNavigateBack = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.location.hash = '#';
+  };
+
   return (
     <section className="animate-fade-in">
       <div className="mb-8">
         <a
-          href="/#"
+          href="#"
+          onClick={handleNavigateBack}
           className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors group"
         >
           <svg
